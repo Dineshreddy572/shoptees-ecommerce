@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ShopTees - Custom T-Shirts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ShopTees</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">T-Shirts</a>
+      <a href="#">Contact</a>
+      <a href="cart.html">Cart 🛒</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h2>Designs That Speak You</h2>
+    <p>Shop unique T-shirts designed with love.</p>
+  </section>
+
+  <main class="product-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="images/shirt1.png" alt="Shirt 1">
+      <h3>Beast Shadow Tee</h3>
+      <p>Product Code: ST001</p>
+      <p>₹799</p>
+      <button onclick="addToCart('Beast Shadow Tee', 799)">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="images/shirt2.png" alt="Shirt 2">
+      <h3>Anime Katana Tee</h3>
+      <p>Product Code: ST002</p>
+      <p>₹899</p>
+      <button onclick="addToCart('Anime Katana Tee', 899)">Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="images/shirt3.png" alt="Shirt 3">
+      <h3>Cyber Glitch Tee</h3>
+      <p>Product Code: ST003</p>
+      <p>₹849</p>
+      <button onclick="addToCart('Cyber Glitch Tee', 849)">Add to Cart</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="images/shirt4.png" alt="Shirt 4">
+      <h3>Retro Wave Tee</h3>
+      <p>Product Code: ST004</p>
+      <p>₹749</p>
+      <button onclick="addToCart('Retro Wave Tee', 749)">Add to Cart</button>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+      <img src="images/shirt5.png" alt="Shirt 5">
+      <h3>Skull Samurai Tee</h3>
+      <p>Product Code: ST005</p>
+      <p>₹999</p>
+      <button onclick="addToCart('Skull Samurai Tee', 999)">Add to Cart</button>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <img src="images/shirt6.png" alt="Shirt 6">
+      <h3>Minimal Line Art Tee</h3>
+      <p>Product Code: ST006</p>
+      <p>₹699</p>
+      <button onclick="addToCart('Minimal Line Art Tee', 699)">Add to Cart</button>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="product-card">
+      <img src="images/shirt7.png" alt="Shirt 7">
+      <h3>Monster Rising Tee</h3>
+      <p>Product Code: ST007</p>
+      <p>₹859</p>
+      <button onclick="addToCart('Monster Rising Tee', 859)">Add to Cart</button>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card">
+      <img src="images/shirt8.png" alt="Shirt 8">
+      <h3>Sunset Samurai Tee</h3>
+      <p>Product Code: ST008</p>
+      <p>₹929</p>
+      <button onclick="addToCart('Sunset Samurai Tee', 929)">Add to Cart</button>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product-card">
+      <img src="images/shirt9.png" alt="Shirt 9">
+      <h3>Neon Ninja Tee</h3>
+      <p>Product Code: ST009</p>
+      <p>₹799</p>
+      <button onclick="addToCart('Neon Ninja Tee', 799)">Add to Cart</button>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product-card">
+      <img src="images/shirt10.png" alt="Shirt 10">
+      <h3>Glitch Beast Tee</h3>
+      <p>Product Code: ST010</p>
+      <p>₹899</p>
+      <button onclick="addToCart('Glitch Beast Tee', 899)">Add to Cart</button>
+    </div>
+  </main>
+<section class="banner" style="background:#fff; text-align:center; padding: 40px;">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:support@shoptees.in">kanipakamdinesh2004@gmail.com</a></p>
+  <p>Phone: +91-6303166117</p>
+  <p>Instagram: <a href="https://instagram.com/shoptees" target="_blank">@shoptees</a></p>
+  <p>Address: 101, bachupally, Hyderabad, India</p>
+</section>
+
+  <footer>
+    <p>&copy; 2025 ShopTees. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
+</body>
+</html>
