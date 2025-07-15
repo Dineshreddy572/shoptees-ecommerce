@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - ShopTees</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #fff;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .remove-btn {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .remove-btn:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ShopTees</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart 🛒</a>
+    </nav>
+  </header>
+
+  <main style="padding: 40px;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3 id="total"></h3>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopTees. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("total");
+
+    function renderCart() {
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        totalDisplay.textContent = "";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <span><strong>${item.name}</strong> - ₹${item.price}</span>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItems.appendChild(div);
+        total += item.price;
+      });
+
+      totalDisplay.textContent = "Total: ₹" + total;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1); // remove item from array
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart(); // re-render cart
+    }
+
+    renderCart(); // call on page load
+  </script>
+</body>
+</html>
